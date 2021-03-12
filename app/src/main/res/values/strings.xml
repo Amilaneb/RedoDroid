@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RestoApp</string>
+    <string name="main_action">Valider</string>
+    <string name="main_action2">Confirmer</string>
+    <string name="home_title">Bienvenue dansMon Resto</string>
+    <string name="home_starters">Entrées</string>
+    <string name="home_desserts">Desserts</string>
+    <string name="home_dishes">Plats</string>
+
+</resources>
