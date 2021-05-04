@@ -6,5 +6,12 @@
     <string name="home_starters">Entrées</string>
     <string name="home_desserts">Desserts</string>
     <string name="home_dishes">Plats</string>
+    <string name="detail">Detail</string>
+    <string name="category_title"></string>
+    <string name="bleTitle">lancer le Scan</string>
+    <string name="blebtn">BLE Scan</string>
+    <string name="bleScanTitle">Lancer le SCAN</string>
+    <string name="bleScanPauseTitle">Scan en Cours</string>
+    <string name="btnImgScan">btnScanImg</string>
 
 </resources>
