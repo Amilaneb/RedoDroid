@@ -6,27 +6,33 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restoapp.databinding.CellCategoryBinding
+import com.squareup.picasso.Picasso
+import com.example.restoapp.model.Dish
 
 
-class CategoryAdapter(private val categories: List<String>, private val onItemClickListener: (String) -> Unit): RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
+class CategoryAdapter(private val categories: List<Dish>, private val onItemClickListener: (Dish) -> Unit): RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
     override fun onCreateViewHolder( parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val binding = CellCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
-        return CategoryViewHolder(binding.root)
+        return CategoryViewHolder(binding)
+
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
-        holder.title.text = categories[position]
+        holder.textTitle.text = categories[position].title
+        //holder.textPrice.text = categories[position].toString()
         holder.layout.setOnClickListener {
-            onItemClickListener(categories[position])
+            onItemClickListener.invoke(categories[position])
         }
     }
 
     override fun getItemCount(): Int = categories.size
 
-    class CategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val title: TextView = view.findViewById(R.id.cellCategoryTitle)
-        val layout = view.findViewById<View>(R.id.cellLayout)
+    class CategoryViewHolder(view: CellCategoryBinding) : RecyclerView.ViewHolder(view.root) {
+        val textTitle: TextView = itemView.findViewById(R.id.cellCategoryTitle)
+        //val textPrice: TextView = itemView.findViewById(R.id.dishPrice)
+        //val Picture = view.dishImage
+        val layout = itemView.findViewById<View>(R.id.cellLayout)
     }
 
 

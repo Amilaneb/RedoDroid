@@ -6,4 +6,9 @@ import java.io.Serializable
 data class Dish(@SerializedName("name_fr") val title: String,
                 val ingredients: List<Ingredients>,
                 val images: List<String>,
-                @SerializedName("prices")val price: List<Price>): Serializable
+                @SerializedName("prices")val price: List<Price>): Serializable {
+
+                    fun getIMAGEurl(): String? {
+                        return images[0]
+                    }
+}

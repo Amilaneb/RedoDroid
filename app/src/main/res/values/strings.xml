@@ -13,5 +13,6 @@
     <string name="bleScanTitle">Lancer le SCAN</string>
     <string name="bleScanPauseTitle">Scan en Cours</string>
     <string name="btnImgScan">btnScanImg</string>
+    <string name="mainImg">IMGplat</string>
 
 </resources>

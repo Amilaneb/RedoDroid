@@ -3,9 +3,11 @@ package com.example.restoapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import com.example.restoapp.databinding.ActivityCategoryBinding
 import com.example.restoapp.databinding.ActivityDetailBinding
 import com.example.restoapp.model.Dish
+import com.squareup.picasso.Picasso
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
@@ -14,9 +16,13 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val dishes = intent.getSerializableExtra("menu")
-        val dishTitle = intent.getStringExtra("name")
-        Log.d("detail", "Response: %s".format(dishes.toString()))
-        Log.d("detail", "Response: %s".format(dishTitle.toString()))
+        val dish: Dish = intent.getSerializableExtra("dish") as Dish
+        val imageView: ImageView = findViewById(R.id.detailImageView)
+        val url: String? = dish.getIMAGEurl()
+
+        if (url?.isNotEmpty() == true) {
+            Picasso.get().load(url).into(imageView)
+        }
     }
+
 }

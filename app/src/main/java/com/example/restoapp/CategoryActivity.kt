@@ -72,15 +72,16 @@ class CategoryActivity : AppCompatActivity() {
     //private fun parseResult(){}
 
     private fun displayMenu(menu: MenuResult) {
-        val categoryTitleList = menu.data[cat].dishes.map { it.title }
+        val categoryTitleList = menu.data[cat].dishes.map { it }
         //Log.d("CatA", "menu: %s".format(menu.data[cat].toString()))
         val plats: Category = menu.data[cat]
         binding.categoryList.layoutManager = LinearLayoutManager(this)
-        binding.categoryList.adapter = CategoryAdapter(categoryTitleList) { item ->
-            //Log.d("CatA", "item: %s".format(item.toString()))
+        binding.categoryList.adapter =
+            CategoryAdapter(categoryTitleList) { item ->
+            Log.d("CatA", "item: %s".format(item.toString()))
             val intent = Intent( this, DetailActivity::class.java)
-            intent.putExtra("menu", plats)
-            intent.putExtra("name", item)
+            //intent.putExtra("menu", plats)
+            intent.putExtra("dish", item)
             startActivity(intent)
         }
     }
