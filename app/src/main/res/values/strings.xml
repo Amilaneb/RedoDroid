@@ -14,5 +14,8 @@
     <string name="bleScanPauseTitle">Scan en Cours</string>
     <string name="btnImgScan">btnScanImg</string>
     <string name="mainImg">IMGplat</string>
+    <string name="ingreds"></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

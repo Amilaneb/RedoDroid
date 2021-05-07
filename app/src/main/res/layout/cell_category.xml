@@ -8,24 +8,27 @@
 
     <ImageView
         android:id="@+id/dishImage"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="86dp"
+        android:layout_height="89dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.98"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.44" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/cellCategoryTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:textSize="24sp"
+        android:layout_marginTop="24dp"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/dishImage"
+        app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,7 +36,12 @@
         android:id="@+id/dishPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        app:layout_constraintBottom_toBottomOf="@+id/dishImage"
-        app:layout_constraintStart_toEndOf="@+id/dishImage" />
+        android:layout_marginStart="8dp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.004"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cellCategoryTitle"
+        app:layout_constraintVertical_bias="0.619" />
 </androidx.constraintlayout.widget.ConstraintLayout>

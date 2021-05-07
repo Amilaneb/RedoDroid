@@ -17,12 +17,11 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val dish: Dish = intent.getSerializableExtra("dish") as Dish
-        val imageView: ImageView = findViewById(R.id.detailImageView)
+        val imageView: ImageView //= findViewById(R.id.detailImageView)
         val url: String? = dish.getIMAGEurl()
-
-        if (url?.isNotEmpty() == true) {
-            Picasso.get().load(url).into(imageView)
-        }
+        val carousel: PhotoAdapter =
+        binding.ingredList.text = dish.getIngredientsString(dish.ingredients)
+        binding.carousel
     }
 
 }

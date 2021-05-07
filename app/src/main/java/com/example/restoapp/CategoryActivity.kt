@@ -57,7 +57,7 @@ class CategoryActivity : AppCompatActivity() {
             { response ->
                 //Log.d("CatA", "Response: %s".format(response.toString()))
                 val menu = Gson().fromJson(response.toString(), MenuResult::class.java)
-                Log.d("CatA", "menu: %s".format(menu.toString()))
+                //Log.d("CatA", "menu: %s".format(menu.toString()))
                 displayMenu(menu)
             },
             Response.ErrorListener { error ->
@@ -78,7 +78,7 @@ class CategoryActivity : AppCompatActivity() {
         binding.categoryList.layoutManager = LinearLayoutManager(this)
         binding.categoryList.adapter =
             CategoryAdapter(categoryTitleList) { item ->
-            Log.d("CatA", "item: %s".format(item.toString()))
+            //Log.d("CatA", "item: %s".format(item.toString()))
             val intent = Intent( this, DetailActivity::class.java)
             //intent.putExtra("menu", plats)
             intent.putExtra("dish", item)
