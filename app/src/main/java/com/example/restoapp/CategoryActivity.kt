@@ -19,9 +19,24 @@ import com.example.restoapp.model.MenuResult
 import com.google.gson.Gson
 import org.json.JSONObject
 
+enum class Cat {
+    STARTER, DISH, DESSERT;
+
+    companion object {
+        fun getCastString(type: Cat): Int{
+            return when(type){
+                STARTER -> R.string.home_starters
+                DISH -> R.string.home_dishes
+                DESSERT -> R.string.home_desserts
+            }
+        }
+    }
+}
+
 class CategoryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCategoryBinding
+    private lateinit var currentCategory: Cat
     private var cat: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,21 +44,21 @@ class CategoryActivity : AppCompatActivity() {
         binding = ActivityCategoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val categoryName = intent.getStringExtra("category")
-        binding.categoryTitle.text = categoryName
+        currentCategory = intent.getSerializableExtra(HomeActivity.CategoryType) as? Cat?: Cat.STARTER
 
-        if (categoryName == "Entrées") {
-            cat = 0
-        } else if(categoryName == "Plats") {
-            cat = 1
-        }
-        else {
-            cat = 2
-        }
-
+        setupTitle()
         postDataBouffe()
 
+        Log.d("Debug", "Category")
 
+    }
+
+    override fun onStart() {
+        Log.i("Debug", "start Cat")
+        super.onStart()
+    }
+    private fun setupTitle(){
+        binding.categoryTitle.text = getString(Cat.getCastString(currentCategory))
     }
 
     private fun postDataBouffe() {

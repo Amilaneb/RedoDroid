@@ -11,17 +11,16 @@ import android.view.ViewGroup
 import com.example.restoapp.databinding.ActivityDetailBinding
 import com.squareup.picasso.Picasso
 
-class PhotoAdapter(activity: AppCompatActivity, private val items: List<String>): FragmentStateAdapter(activity) {
-    override fun getItemCount(): Int {
-        return items.count()
-    }
+//class PhotoAdapter(activity: AppCompatActivity, private val items: List<String>): FragmentStateAdapter(activity) {
+  //  override fun getItemCount(): Int {
+    //    return items.count()
+    //}
 
-    override fun createFragment(position: Int): Fragment {
-        return Photo.newInstance(
-            items[position]
-        )
-    }
-}
+   // override fun createFragment(position: Int): Fragment {
+     //   return null //Photo.newInstance(
+            //items[position] )
+    //}
+//}
 
 
 
@@ -38,7 +37,7 @@ class Photo : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val url = arguments?.
+        //val url = arguments?
 
         //if(url?.isNotEmpty() == true) {
         //  Picasso.get().load(url).placeholder(R.drawable.).into(binding.photo)

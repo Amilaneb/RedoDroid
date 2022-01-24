@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import com.example.restoapp.databinding.ActivityHomeBinding
+import java.util.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -15,27 +16,8 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val mainAction = findViewById<Button>(R.id.starters)
 
-
-        binding.starters.setOnClickListener{
-            val intnt = Intent(this@HomeActivity, CategoryActivity::class.java)
-            intnt.putExtra("category", "Entrées")
-            startActivity(intnt)
-        }
-
-        binding.dishes.setOnClickListener{
-            val intnt = Intent(this@HomeActivity, CategoryActivity::class.java)
-            intnt.putExtra("category", "Plats")
-            startActivity(intnt)
-        }
-
-        binding.desserts.setOnClickListener{
-            val intnt = Intent(this@HomeActivity, CategoryActivity::class.java)
-            intnt.putExtra("category", "Desserts")
-            startActivity(intnt)
-        }
-
+            setListener()
         binding.bleScanBtn.setOnClickListener{
             val intnt = Intent(this@HomeActivity, BleScanActivity::class.java)
             startActivity(intnt)
@@ -43,8 +25,36 @@ class HomeActivity : AppCompatActivity() {
 
 
     }
+    companion object {
+        const val CategoryType = "CategoryType"
+    }
+
+    private fun setListener(){
+        binding.starters.setOnClickListener{
+            PassCat(Cat.STARTER)
+        }
+
+        binding.dishes.setOnClickListener{
+            PassCat(Cat.DISH)
+        }
+
+        binding.desserts.setOnClickListener{
+            PassCat(Cat.DESSERT)
+        }
+    }
+
+
+    private fun PassCat(item: Cat){
+
+            val i = Intent(this@HomeActivity, CategoryActivity::class.java)
+            i.putExtra(CategoryType , item)
+            Log.d("Debug", "start!!")
+            startActivity(i)
+        }
+
     override fun onDestroy() {
-        super.onDestroy()
         Log.i("destroy", "Home detruit")
+        super.onDestroy()
+
     }
 }

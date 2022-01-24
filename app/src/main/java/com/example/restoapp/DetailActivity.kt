@@ -19,9 +19,8 @@ class DetailActivity : AppCompatActivity() {
         val dish: Dish = intent.getSerializableExtra("dish") as Dish
         val imageView: ImageView //= findViewById(R.id.detailImageView)
         val url: String? = dish.getIMAGEurl()
-        val carousel: PhotoAdapter =
-        binding.ingredList.text = dish.getIngredientsString(dish.ingredients)
-        binding.carousel
+        //val carousel: PhotoAdapter
+        //binding.ingredList.text = dish.getIngredientsString(dish.ingredients)
     }
 
 }
