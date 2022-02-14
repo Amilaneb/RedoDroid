@@ -21,11 +21,6 @@ class HomeActivity : BaseActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-            setListener()
-        /*binding.bleScanBtn.setOnClickListener{
-            val intent = Intent(this@HomeActivity, BleScanActivity::class.java)
-            startActivity(intent)
-        }*/
         val nightMode = binding.nightModeBtn
         val appSettingPrefs : SharedPreferences = getSharedPreferences("AppSettingPrefs", 0)
         val editor : SharedPreferences.Editor = appSettingPrefs.edit()
@@ -38,12 +33,12 @@ class HomeActivity : BaseActivity() {
         }
 
         nightMode.setOnClickListener {
-            if(isNightModeOn){
+            if (isNightModeOn) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 Toast.makeText(this, "nightModeON", Toast.LENGTH_LONG).show()
                 editor.putBoolean("NightMode", false)
                 editor.apply()
-            }else{
+            } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 Toast.makeText(this, "nightModeOFF", Toast.LENGTH_LONG).show()
                 editor.putBoolean("NightMode", true)
