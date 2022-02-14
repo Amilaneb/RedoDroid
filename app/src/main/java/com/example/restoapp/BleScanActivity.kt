@@ -43,8 +43,8 @@ class BleScanActivity : AppCompatActivity() {
                 Toast.makeText(this, "ble_not_supported", Toast.LENGTH_SHORT).show()
             }
             !(bluetoothAdapter?.isEnabled ?: false) -> {
-                val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
-                startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT)
+                //val enableBtIntent = Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE)
+               // startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT)
             }
                 ActivityCompat.checkSelfPermission(
                     this,
@@ -63,13 +63,13 @@ class BleScanActivity : AppCompatActivity() {
             }
         }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
+  //  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+  //      super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == REQUEST_ENABLE_BT && resultCode == RESULT_OK) {
-            startBleIfPossible()
-        }
-    }
+  //      if (requestCode == REQUEST_ENABLE_BT && resultCode == RESULT_OK) {
+  //          startBleIfPossible()
+  //      }
+  //  }
 
 
     private fun checkifBLE(): Boolean {

@@ -12,16 +12,26 @@ data class Dish(@SerializedName("name_fr") val title: String,
 @SerializedName("prices")val price: List<Price>): Serializable {
 
     fun getIMAGEurl(): String? {
+        if (images[0].isNotEmpty()){
+
         return images[0]
+
+        } else {
+            return null
+        }
+    }
+
+    fun getPrice(): String{
+    return price.first().toString()
     }
 
     fun displayIMG(url: String, view: ImageView) {
-        if (url?.isNotEmpty()) {
+        if (url.isNotEmpty()) {
             Picasso.get().load(url).into(view)
         }
     }
 
-    fun getIngredientsString(ingreds: List<Ingredients>): String {
-        return ingreds.joinToString(", ") { it.name }
+    fun getIngredientsString(): String {
+        return ingredients.joinToString(", ") { it.name }
     }
 }

@@ -13,6 +13,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
+import com.example.restoapp.Network.NetworkConstants
 import com.example.restoapp.model.Category
 import com.example.restoapp.model.Dish
 import com.example.restoapp.model.MenuResult
@@ -30,14 +31,21 @@ enum class Cat {
                 DESSERT -> R.string.home_desserts
             }
         }
+
+        fun getCatTitle(type: Cat): Int{
+            return when(type){
+                STARTER -> 0
+                DISH -> 1
+                DESSERT -> 2
+            }
+        }
     }
 }
 
-class CategoryActivity : AppCompatActivity() {
+class CategoryActivity : BaseActivity() {
 
     private lateinit var binding: ActivityCategoryBinding
     private lateinit var currentCategory: Cat
-    private var cat: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +55,7 @@ class CategoryActivity : AppCompatActivity() {
         currentCategory = intent.getSerializableExtra(HomeActivity.CategoryType) as? Cat?: Cat.STARTER
 
         setupTitle()
-        postDataBouffe()
+        postData()
 
         Log.d("Debug", "Category")
 
@@ -61,16 +69,16 @@ class CategoryActivity : AppCompatActivity() {
         binding.categoryTitle.text = getString(Cat.getCastString(currentCategory))
     }
 
-    private fun postDataBouffe() {
-        val url = "http://test.api.catering.bluecodegames.com/menu"
+    private fun postData() {
 
+        val url = NetworkConstants.URL+NetworkConstants.MENU
         val jInput = JSONObject()
-        jInput.put("id_shop","1")
+        jInput.put(NetworkConstants.KEY_SHOP,NetworkConstants.SHOP)
 
         val jsonObjectRequest = JsonObjectRequest(
             Request.Method.POST, url, jInput,
             { response ->
-                //Log.d("CatA", "Response: %s".format(response.toString()))
+                Log.d("CatA", "${response.toString(2)}")
                 val menu = Gson().fromJson(response.toString(), MenuResult::class.java)
                 //Log.d("CatA", "menu: %s".format(menu.toString()))
                 displayMenu(menu)
@@ -87,9 +95,10 @@ class CategoryActivity : AppCompatActivity() {
     //private fun parseResult(){}
 
     private fun displayMenu(menu: MenuResult) {
-        val categoryTitleList = menu.data[cat].dishes.map { it }
+        val catNum = Cat.getCatTitle(currentCategory)
+        val categoryTitleList = menu.data[catNum].dishes
         //Log.d("CatA", "menu: %s".format(menu.data[cat].toString()))
-        val plats: Category = menu.data[cat]
+        //val plats: Category = menu.data[catNum]
         binding.categoryList.layoutManager = LinearLayoutManager(this)
         binding.categoryList.adapter =
             CategoryAdapter(categoryTitleList) { item ->

@@ -3,8 +3,8 @@
     package="com.example.restoapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
@@ -15,11 +15,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RestoApp"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".BleScanActivity"></activity>
-        <activity android:name=".DetailActivity" />
-        <activity android:name=".CategoryActivity" />
-        <activity android:name=".HomeActivity">
+        <activity
+            android:name=".user.UserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".basket.BasketActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BaseActivity"
+            android:exported="false" />
+        <activity android:name=".BleScanActivity" />
+        <activity android:name=".DetailActivity"
+            android:exported="false"/>
+        <activity android:name=".CategoryActivity"
+            android:exported="false"/>
+        <activity android:name=".HomeActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

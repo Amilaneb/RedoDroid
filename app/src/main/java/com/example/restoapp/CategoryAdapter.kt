@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.restoapp.databinding.CellCategoryBinding
-import com.squareup.picasso.Picasso
 import com.example.restoapp.model.Dish
 
 
@@ -22,7 +21,7 @@ class CategoryAdapter(private val categories: List<Dish>, private val onItemClic
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         holder.textTitle.text = categories[position].title
         holder.textPrice.text = categories[position].price[0].toString()
-        val imgView: ImageView = holder.Picture
+        val imgView: ImageView = holder.picture
         categories[position].getIMAGEurl()?.let { categories[position].displayIMG(it, imgView) }
         holder.layout.setOnClickListener {
             onItemClickListener.invoke(categories[position])
@@ -32,10 +31,10 @@ class CategoryAdapter(private val categories: List<Dish>, private val onItemClic
     override fun getItemCount(): Int = categories.size
 
     class CategoryViewHolder(view: CellCategoryBinding) : RecyclerView.ViewHolder(view.root) {
-        val textTitle: TextView = itemView.findViewById(R.id.cellCategoryTitle)
-        val textPrice: TextView = itemView.findViewById(R.id.dishPrice)
-        val Picture: ImageView = itemView.findViewById(R.id.dishImage)
-        val layout = itemView.findViewById<View>(R.id.cellLayout)
+        val textTitle: TextView = view.cellCategoryTitle
+        val textPrice: TextView = view.dishPrice
+        val picture: ImageView = view.dishImage
+        val layout: View = view.root
     }
 
 

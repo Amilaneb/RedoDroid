@@ -4,11 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.widget.Button
 import com.example.restoapp.databinding.ActivityHomeBinding
 import java.util.*
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
 
     private lateinit var binding: ActivityHomeBinding
 
@@ -18,10 +19,10 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
             setListener()
-        binding.bleScanBtn.setOnClickListener{
-            val intnt = Intent(this@HomeActivity, BleScanActivity::class.java)
-            startActivity(intnt)
-        }
+        /*binding.bleScanBtn.setOnClickListener{
+            val intent = Intent(this@HomeActivity, BleScanActivity::class.java)
+            startActivity(intent)
+        }*/
 
 
     }
@@ -42,7 +43,6 @@ class HomeActivity : AppCompatActivity() {
             PassCat(Cat.DESSERT)
         }
     }
-
 
     private fun PassCat(item: Cat){
 
