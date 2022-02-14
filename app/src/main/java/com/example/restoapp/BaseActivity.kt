@@ -4,11 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.Menu
-import android.widget.Switch
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.isVisible
 import com.example.restoapp.basket.Basket
@@ -24,22 +22,6 @@ open class BaseActivity : AppCompatActivity() {
         val count = getCount()
         countText?.isVisible = count > 0
         countText?.text = count.toString()
-        val nightModeswitch = menu?.findItem(R.id.nightmode)?.actionView
-        val appSettingPrefs : SharedPreferences = getSharedPreferences("AppSettingPrefs", 0)
-        val editor : SharedPreferences.Editor = appSettingPrefs.edit()
-        val isNightModeOn : Boolean = appSettingPrefs.getBoolean("NightMode", false)
-
-        nightModeswitch?.setOnClickListener {
-        if(isNightModeOn){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-            editor.putBoolean("NightMode", false)
-            editor.apply()
-        }else{
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            editor.putBoolean("NightMode", true)
-            editor.apply()
-        }
-        }
 
 
         menuView?.setOnClickListener{

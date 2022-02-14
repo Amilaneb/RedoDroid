@@ -35,6 +35,7 @@
             android:id="@+id/registerNameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/registerName"
             tools:text="@string/registerName" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -51,6 +52,7 @@
             android:id="@+id/registerLastNameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/registterLN"
             tools:text="@string/registterLN" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -67,6 +69,7 @@
             android:id="@+id/registerEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/registerEmail"
             tools:text="@string/registerEmail" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,6 +86,7 @@
             android:id="@+id/registerPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/registerPassword"
             tools:text="@string/registerPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,7 +95,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:backgroundTint="@color/basic_bg"
         android:text="@string/registerSubmit"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
@@ -100,7 +106,9 @@
         android:id="@+id/buttonSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/basic_bg"
         android:text="@string/registerSignInbtn"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"

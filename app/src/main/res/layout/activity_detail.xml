@@ -5,6 +5,7 @@
     android:id="@+id/detailView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/basic_bg"
     tools:context=".DetailActivity">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/detail"
+        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,6 +27,7 @@
         android:layout_width="391dp"
         android:layout_height="33dp"
         android:text="@string/ingreds"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +40,7 @@
         android:layout_marginTop="16dp"
         android:contentDescription="@string/detailPrice"
         android:text="@string/detailPrice"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/ingredList"
         app:layout_constraintTop_toBottomOf="@+id/ingredList" />
 
@@ -79,6 +83,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/basic_bg"
             android:text="@string/lessBtn"
             android:textSize="34sp"
             app:cornerRadius="50dp" />
@@ -99,6 +104,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:backgroundTint="@color/basic_bg"
             android:text="@string/moreBtn"
             android:textSize="34sp"
             app:cornerRadius="50dp" />
